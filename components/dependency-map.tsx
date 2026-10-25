@@ -329,13 +329,6 @@ function FolderNode({ data }: NodeProps<FolderNodeType>) {
           {filesLabel(data.files)}
         </span>
       </button>
-      <Handle
-        type="target"
-        id={handle.in}
-        position={Position.Left}
-        isConnectable={false}
-        style={hiddenHandle}
-      />
       <Anchors inId={handle.in} outId={handle.out} />
     </div>
   );
