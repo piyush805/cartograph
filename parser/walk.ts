@@ -19,8 +19,9 @@ export function toRelative(root: string, absolute: string): string {
   return path.relative(root, absolute).split(path.sep).join("/");
 }
 
+// `..foo` is a name inside the repository. Only `..` and `../…` leave it.
 export function isInside(relative: string): boolean {
-  return relative !== "" && !relative.startsWith("..") && !path.isAbsolute(relative);
+  return relative !== "" && relative !== ".." && !relative.startsWith("../") && !path.isAbsolute(relative);
 }
 
 // Why a directory is never walked. Both rules are structural: installed
