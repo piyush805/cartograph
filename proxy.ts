@@ -6,7 +6,8 @@ function isPublic(pathname: string) {
     pathname === "/sign-in" ||
     pathname.startsWith("/sign-in/") ||
     pathname === "/sign-up" ||
-    pathname.startsWith("/sign-up/")
+    pathname.startsWith("/sign-up/") ||
+    pathname === "/preview"
   );
 }
 

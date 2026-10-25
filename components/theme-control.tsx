@@ -23,8 +23,8 @@ export function ThemeControl({ current }: { current: Theme }) {
             onClick={() => choose(option)}
             className={
               selected
-                ? "bg-accent px-2 py-0.5 text-[12px] text-white"
-                : "px-2 py-0.5 text-[12px] text-muted hover:text-ink"
+                ? "h-6 bg-accent px-2 text-[12px] text-white"
+                : "h-6 px-2 text-[12px] text-muted hover:text-ink"
             }
           >
             {option === "system" ? "System" : option === "light" ? "Light" : "Dark"}
