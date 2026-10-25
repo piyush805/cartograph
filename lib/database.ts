@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/lib/database.types";
 import { env } from "@/lib/env";
 
 /**
@@ -7,11 +8,11 @@ import { env } from "@/lib/env";
  * which already carries the active organization, and does not keep a session
  * of its own.
  */
-export async function createDatabase(): Promise<SupabaseClient> {
+export async function createDatabase(): Promise<SupabaseClient<Database>> {
   const { getToken } = await auth();
   const { supabaseUrl, supabasePublishableKey } = env();
 
-  return createClient(supabaseUrl, supabasePublishableKey, {
+  return createClient<Database>(supabaseUrl, supabasePublishableKey, {
     accessToken: () => getToken(),
     auth: {
       persistSession: false,
